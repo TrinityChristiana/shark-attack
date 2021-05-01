@@ -20,13 +20,17 @@ function App() {
     const [living, dead] = killStudent();
     setLivinStudents(living);
     setDeadStudents(dead);
-    console.warn('dfsfsdfsdf');
   };
 
   return (
     <div className='App'>
-      {/* Kill student button */}
-      <Button color='danger' onClick={killEmDead}>Kill em Dead</Button>
+      <Button
+        color='danger'
+        onClick={killEmDead}
+        disabled={livinStudents.length <= 0}
+      >
+        Kill em Dead
+      </Button>
       <h2>Living Students</h2>
       <ul>
         {livinStudents.map((liveStudent) => (
