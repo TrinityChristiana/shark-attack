@@ -19,4 +19,23 @@ const students = [
   },
 ];
 
-export default students;
+const getLiveStudents = () => students.filter((student) => !student.isDead);
+const getDeadStudents = () => students.filter((student) => student.isDead);
+
+const killStudent = () => {
+  const currentLiveStudents = getLiveStudents();
+  const randomStudent = currentLiveStudents[Math.floor(Math.random() * currentLiveStudents.length)];
+
+  const index = students.indexOf(randomStudent);
+
+  students[index].isDead = true;
+
+  return [getLiveStudents(), getDeadStudents()];
+};
+
+export {
+  getLiveStudents,
+  getDeadStudents,
+  killStudent,
+  students
+};
