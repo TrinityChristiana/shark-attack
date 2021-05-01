@@ -6,6 +6,8 @@ import {
   getDeadStudents,
   killStudent
 } from '../helpers/data/studentData';
+import SharkTank from '../components/tank/SharkTank';
+import GraveYard from '../components/grave/Graveyard';
 
 function App() {
   const [livinStudents, setLivinStudents] = useState([]);
@@ -32,21 +34,9 @@ function App() {
         Kill em Dead
       </Button>
       <h2>Living Students</h2>
-      <ul>
-        {livinStudents.map((liveStudent) => (
-          <li key={liveStudent.id}>
-            {`${liveStudent.firstName} ${liveStudent.lastName}`}
-          </li>
-        ))}
-      </ul>
+      <SharkTank livinStudents={livinStudents} />
       <h2>Dead Students</h2>
-      <ul>
-        {deadStudents.map((liveStudent) => (
-          <li key={liveStudent.id}>
-            {`${liveStudent.firstName} ${liveStudent.lastName}`}
-          </li>
-        ))}
-      </ul>
+      <GraveYard deadStudents={deadStudents}/>
     </div>
   );
 }
