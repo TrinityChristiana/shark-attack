@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './App.scss';
 import { Button } from 'reactstrap';
 import {
   getLiveStudents,
   getDeadStudents,
   killStudent
 } from '../helpers/data/studentData';
-import SharkTank from '../components/tank/SharkTank';
-import GraveYard from '../components/grave/Graveyard';
+import StudentList from '../components/StudentList';
 
 function App() {
   const [livinStudents, setLivinStudents] = useState([]);
@@ -34,9 +32,9 @@ function App() {
         Kill em Dead
       </Button>
       <h2>Living Students</h2>
-      <SharkTank livinStudents={livinStudents} />
+      <StudentList color='info' studentArray={livinStudents} />
       <h2>Dead Students</h2>
-      <GraveYard deadStudents={deadStudents}/>
+      <StudentList color='secondary' studentArray={deadStudents}/>
     </div>
   );
 }
